@@ -153,8 +153,7 @@ nexus-mind-agentic-platform/
 ├── app.py                 # Core Streamlit Web Application & Cyberpunk UI
 ├── SPECS.md               # Complete System Specifications & Architecture Docs
 ├── README.md              # Showcase Portfolio Documentation
-├── pyproject.toml         # Modern Project Configuration & Dependencies
-├── requirements.txt       # Direct pip dependencies
+├── requirements.txt       # Streamlit Cloud pip dependencies
 └── agents/
     ├── __init__.py        # Agent module exports
     ├── arbiter_agent.py   # Nexus Arbiter & Dynamic Difficulty Agent

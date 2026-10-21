@@ -10,6 +10,8 @@ wheels/
 .venv
 venv/
 env/
+uv.lock
+*.lock
 
 # Environment variables & secrets
 .env
