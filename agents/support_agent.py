@@ -24,6 +24,7 @@ class SupportAgent:
             "app_name": "Nexus Mind: Autonomous Multi-Agent Gaming & Intelligence Platform",
             "developer": "Sainbux (Hadi) Seelro",
             "github": "https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform",
+            "live_url": "https://nexus-mind-agentic-platform.streamlit.app/",
             "tech_stack": [
                 "Python 3.12",
                 "Streamlit 1.42+",

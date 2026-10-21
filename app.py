@@ -375,9 +375,14 @@ with st.sidebar:
         <div style="font-size:0.75rem; text-transform:uppercase; color:#38bdf8; font-weight:700;">Developer Portfolio</div>
         <div style="font-size:1.1rem; font-weight:800; color:#ffffff; margin: 4px 0;">Sainbux (Hadi) Seelro</div>
         <div style="font-size:0.85rem; color:#cbd5e1; margin-bottom:10px;">Agentic AI & Systems Developer</div>
-        <a href="https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform" target="_blank" style="text-decoration:none; display:inline-block; background:#0284c7; color:#ffffff; padding:6px 14px; border-radius:6px; font-size:0.8rem; font-weight:700;">
-            ⭐ GitHub Repo
-        </a>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a href="https://nexus-mind-agentic-platform.streamlit.app/" target="_blank" style="text-decoration:none; display:inline-block; background:#10b981; color:#ffffff; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:700;">
+                🚀 Live App
+            </a>
+            <a href="https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform" target="_blank" style="text-decoration:none; display:inline-block; background:#0284c7; color:#ffffff; padding:6px 12px; border-radius:6px; font-size:0.8rem; font-weight:700;">
+                ⭐ GitHub
+            </a>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 

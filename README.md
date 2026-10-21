@@ -4,19 +4,22 @@
 
 ### *A High-Performance Showcase Engineered by an Agentic AI Developer*
 
+[![Live Streamlit App](https://img.shields.io/badge/Live%20Demo-streamlit.app-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://nexus-mind-agentic-platform.streamlit.app/)
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Streamlit Framework](https://img.shields.io/badge/Streamlit-1.42+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Multi-Agent Architecture](https://img.shields.io/badge/Multi--Agent-Autonomous%20Swarm-8A2BE2?style=for-the-badge&logo=openai&logoColor=white)](#multi-agent-system-architecture)
 [![24/7 Live AI Concierge](https://img.shields.io/badge/24%2F7%20AI-Live%20Contextual%20Agent-00F0FF?style=for-the-badge&logo=robot&logoColor=black)](#nova-247-live-ai-concierge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
-**[🎮 Live Demo](#quick-start-in-60-seconds)** • **[📋 System Specifications](SPECS.md)** • **[🤖 Agent Ecosystem](#multi-agent-system-architecture)** • **[💼 Portfolio Contact](#architect--developer-portfolio)**
+**[🚀 Open Live Web App](https://nexus-mind-agentic-platform.streamlit.app/)** • **[📋 System Specifications](SPECS.md)** • **[🤖 Agent Ecosystem](#multi-agent-system-architecture)** • **[💼 Portfolio Contact](#architect--developer-portfolio)**
 
 ---
 
 </div>
+
+> 🌐 **Live Web Application:** [https://nexus-mind-agentic-platform.streamlit.app/](https://nexus-mind-agentic-platform.streamlit.app/)  
+> *Click the link above to test the multi-agent AI system and 24/7 live chatbot in your browser instantly with zero setup!*
 
 ## 🌟 Overview
 
@@ -119,24 +122,31 @@ As each guess bisects or contracts the search interval, the remaining uncertaint
 
 ---
 
-## 🚀 Quick Start in 60 Seconds
+## 🚀 Live Demo & Quick Start
 
-### Prerequisites
+### 🌐 Instant Browser Access (Zero Setup)
+Play the live deployed application directly on Streamlit Cloud:  
+👉 **[https://nexus-mind-agentic-platform.streamlit.app/](https://nexus-mind-agentic-platform.streamlit.app/)**
+
+---
+
+### 💻 Run Locally
+
+#### Prerequisites
 - Python 3.10, 3.11, or 3.12 installed.
 
-### 1. Clone or Open the Repository
+#### 1. Clone the Repository
 ```bash
 git clone https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform.git
 cd nexus-mind-agentic-platform
 ```
 
-### 2. Install Dependencies
+#### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-*(Or simply run `pip install streamlit openai python-dotenv`)*
 
-### 3. Launch the Platform
+#### 3. Launch Locally
 ```bash
 streamlit run app.py
 ```
@@ -167,6 +177,7 @@ This project was built to demonstrate **high-standard Agentic AI Engineering**, 
 
 - **Developer:** Sainbux (Hadi) Seelro | Agentic AI & Systems Engineer
 - **Specialties:** Autonomous Multi-Agent Swarms, RAG Architectures, Telemetry & Intelligent Web Applications
+- **Live App:** [nexus-mind-agentic-platform.streamlit.app](https://nexus-mind-agentic-platform.streamlit.app/)
 - **GitHub:** [github.com/SainBux-HadiSeelro](https://github.com/SainBux-HadiSeelro)
 - **Repository:** [nexus-mind-agentic-platform](https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform)
 
