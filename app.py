@@ -17,222 +17,218 @@ from agents.support_agent import SupportAgent
 # PAGE CONFIGURATION & METADATA
 # ---------------------------------------------------------
 st.set_page_config(
-    page_title="Nexus Mind // Next-Gen AI Gaming",
-    page_icon="⚡",
+    page_title="Nexus Mind // Smart AI Number Game",
+    page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # ---------------------------------------------------------
-# ULTRA-PREMIUM MODERN OBSIDIAN & AURORA DESIGN SYSTEM
+# HIGH-CONTRAST CLEAN SLATE MODERN DESIGN (100% VISIBILITY)
 # ---------------------------------------------------------
 st.markdown("""
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
 <style>
-    /* Global App Canvas */
+    /* Global App Canvas - Clean Deep Slate */
     .stApp {
-        background: radial-gradient(circle at 50% 0%, #171b30 0%, #080a12 60%, #030408 100%);
+        background-color: #0b0f19;
+        color: #f8fafc;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Force Full Text Visibility Across Streamlit Widgets */
+    p, span, label, div, h1, h2, h3, h4, h5, h6 {
         color: #f1f5f9;
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    [data-testid="stWidgetLabel"] p, [data-testid="stWidgetLabel"] label {
+        color: #f8fafc !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+    }
+    .stMarkdown p {
+        color: #e2e8f0 !important;
+        font-size: 1rem;
+        line-height: 1.6;
     }
 
-    /* Ambient Header Glow */
-    .hero-container {
-        position: relative;
-        padding: 30px 24px;
-        border-radius: 24px;
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.45) 0%, rgba(15, 23, 42, 0.65) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    /* Modern Hero Header Banner */
+    .hero-box {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        border: 2px solid #38bdf8;
+        border-radius: 16px;
+        padding: 24px;
         margin-bottom: 24px;
-        overflow: hidden;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
-    .hero-container::before {
-        content: "";
-        position: absolute;
-        top: -60px;
-        right: -60px;
-        width: 220px;
-        height: 220px;
-        background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
-        filter: blur(40px);
-        pointer-events: none;
-    }
-
     .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 14px;
-        border-radius: 9999px;
-        background: rgba(56, 189, 248, 0.1);
-        border: 1px solid rgba(56, 189, 248, 0.3);
+        display: inline-block;
+        background: #0284c7;
+        color: #ffffff !important;
         font-size: 0.8rem;
         font-weight: 700;
-        color: #38bdf8;
-        letter-spacing: 0.05em;
+        padding: 4px 12px;
+        border-radius: 20px;
         text-transform: uppercase;
-        margin-bottom: 12px;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
     }
-
     .hero-title {
-        font-size: 2.5rem;
+        color: #ffffff !important;
+        font-size: 2.2rem;
         font-weight: 800;
-        letter-spacing: -0.03em;
-        line-height: 1.15;
-        background: linear-gradient(135deg, #ffffff 20%, #93c5fd 60%, #c084fc 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0 0 10px 0;
+        margin: 0 0 8px 0;
     }
-
-    .hero-subtitle {
-        color: #94a3b8;
+    .hero-desc {
+        color: #cbd5e1 !important;
         font-size: 1.05rem;
-        line-height: 1.5;
-        margin: 0 0 16px 0;
-        max-width: 720px;
+        margin: 0 0 14px 0;
     }
 
-    /* Quick Guide Chips */
-    .quick-chips-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 14px;
+    /* 3-Step Guide Box */
+    .steps-box {
+        background: #1e293b;
+        border-left: 4px solid #38bdf8;
+        border-radius: 8px;
+        padding: 12px 18px;
+        margin-top: 10px;
     }
-    .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 14px;
-        border-radius: 10px;
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(148, 163, 184, 0.15);
-        font-size: 0.85rem;
-        color: #cbd5e1;
+    .steps-box b {
+        color: #38bdf8 !important;
+    }
+    .steps-box span {
+        color: #f1f5f9 !important;
     }
 
-    /* Metric Luxury Card */
-    .metric-card {
-        background: linear-gradient(145deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.7) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 18px;
-        padding: 18px 20px;
+    /* Metric Cards */
+    .stat-card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 16px;
         text-align: center;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    .metric-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(56, 189, 248, 0.3);
-    }
-    .metric-label {
+    .stat-title {
+        color: #94a3b8 !important;
         font-size: 0.82rem;
-        color: #94a3b8;
-        font-weight: 600;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
     }
-    .metric-value {
+    .stat-num {
+        color: #ffffff !important;
         font-size: 1.8rem;
         font-weight: 800;
-        color: #f8fafc;
-        font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Glass Panels */
-    .glass-panel {
-        background: linear-gradient(145deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.75) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        padding: 24px;
-        margin-bottom: 20px;
-        box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Thermal Radar Box */
-    .radar-box {
-        border-radius: 16px;
-        padding: 20px;
-        text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        margin-top: 12px;
-        position: relative;
-        overflow: hidden;
-    }
-    .radar-boiling {
-        background: radial-gradient(circle at 50% 0%, rgba(239, 68, 68, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
-        border-color: rgba(239, 68, 68, 0.5);
-    }
-    .radar-warm {
-        background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
-        border-color: rgba(245, 158, 11, 0.5);
-    }
-    .radar-lukewarm {
-        background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
-        border-color: rgba(56, 189, 248, 0.5);
-    }
-    .radar-cold {
-        background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
-        border-color: rgba(99, 102, 241, 0.5);
-    }
-
-    /* Target Search Range Visualizer */
-    .range-visualizer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: rgba(15, 23, 42, 0.8);
-        border: 1px solid rgba(148, 163, 184, 0.15);
-        border-radius: 14px;
-        padding: 12px 18px;
-        margin: 14px 0;
-        font-family: 'JetBrains Mono', monospace;
-    }
-    .range-endpoint {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: #38bdf8;
-    }
-    .range-middle {
-        color: #f59e0b;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-    }
-
-    /* Styled Inputs & Buttons */
-    div[data-testid="stForm"] {
-        border: 1px solid rgba(56, 189, 248, 0.2);
-        border-radius: 18px;
-        padding: 20px;
-        background: rgba(15, 23, 42, 0.4);
-    }
-    .stButton>button {
+    /* Target Search Boundary Bar */
+    .boundary-banner {
+        background: #1e293b;
+        border: 2px dashed #0284c7;
         border-radius: 12px;
+        padding: 14px 20px;
+        text-align: center;
+        margin: 16px 0;
+    }
+    .boundary-text {
+        font-size: 1.25rem;
         font-weight: 700;
-        font-size: 1rem;
-        padding: 10px 20px;
-        transition: all 0.2s ease;
-        border: none;
+        color: #ffffff !important;
+    }
+    .boundary-highlight {
+        color: #38bdf8 !important;
+        font-size: 1.4rem;
+    }
+
+    /* Radar Clue Boxes */
+    .clue-card {
+        border-radius: 12px;
+        padding: 18px;
+        margin-top: 14px;
+        text-align: center;
+        border: 2px solid #475569;
+    }
+    .clue-boiling {
+        background: #450a0a;
+        border-color: #ef4444;
+    }
+    .clue-warm {
+        background: #451a03;
+        border-color: #f59e0b;
+    }
+    .clue-lukewarm {
+        background: #082f49;
+        border-color: #0284c7;
+    }
+    .clue-cold {
+        background: #1e1b4b;
+        border-color: #6366f1;
+    }
+
+    /* Input & Button Styling (Crisp & High Contrast) */
+    .stTextInput input, .stNumberInput input {
+        background-color: #1e293b !important;
+        color: #ffffff !important;
+        border: 2px solid #475569 !important;
+        border-radius: 10px !important;
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        padding: 10px 14px !important;
+    }
+    .stTextInput input:focus, .stNumberInput input:focus {
+        border-color: #38bdf8 !important;
+    }
+
+    /* Primary Buttons */
+    .stButton>button {
+        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+        border: none !important;
+        border-radius: 10px !important;
+        padding: 12px 24px !important;
+        box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4) !important;
     }
     .stButton>button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px -6px rgba(56, 189, 248, 0.5);
+        background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%) !important;
+        color: #ffffff !important;
     }
 
-    /* Sidebar Creator Card */
-    .creator-card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.9) 100%);
-        border: 1px solid rgba(56, 189, 248, 0.3);
-        border-radius: 16px;
-        padding: 16px;
+    /* Tabs Styling - Bold and Visible */
+    [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: #0f172a;
+        padding: 8px;
+        border-radius: 12px;
+        border: 1px solid #334155;
+    }
+    [data-baseweb="tab"] {
+        color: #94a3b8 !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        border-radius: 8px !important;
+        padding: 10px 18px !important;
+    }
+    [data-baseweb="tab"][aria-selected="true"] {
+        background-color: #1e293b !important;
+        color: #38bdf8 !important;
+        font-weight: 700 !important;
+        border-bottom: 3px solid #38bdf8 !important;
+    }
+
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background-color: #0f172a !important;
+        border-right: 1px solid #1e293b;
+    }
+
+    /* Creator Card in Sidebar */
+    .dev-badge {
+        background: #1e293b;
+        border: 1px solid #38bdf8;
+        border-radius: 12px;
+        padding: 14px;
         margin-top: 14px;
     }
 </style>
@@ -266,7 +262,7 @@ def init_game_state(reset_lifetime: bool = False):
         st.session_state.chat_history = [
             {
                 "role": "assistant",
-                "content": "👋 **Hello! I'm Nova**, your 24/7 AI Gaming Concierge. You can ask me for live hints, how to play, or learn about the developer!"
+                "content": "👋 **Hello! I'm Nova**, your 24/7 AI Helper. You can ask me for a hint, learn the rules, or ask about the developer!"
             }
         ]
 
@@ -289,11 +285,11 @@ def init_game_state(reset_lifetime: bool = False):
     st.session_state.last_heat = None
     st.session_state.history = []
     st.session_state.optimal_steps = arbiter_agent.calculate_optimal_steps(st.session_state.min_val, st.session_state.max_val)
-    st.session_state.max_allowed_moves = st.session_state.optimal_steps + 2  # for 7-guess challenge
+    st.session_state.max_allowed_moves = st.session_state.optimal_steps + 2
     st.session_state.ai_duel_turn = "Player"
     st.session_state.ai_duel_history = []
     st.session_state.agent_logs = [
-        f"[{time.strftime('%H:%M:%S')}] Nexus Arbiter generated secret between {st.session_state.min_val} and {st.session_state.max_val}."
+        f"[{time.strftime('%H:%M:%S')}] Nexus Arbiter picked secret number between {st.session_state.min_val} and {st.session_state.max_val}."
     ]
 
 # First-time initialization
@@ -302,26 +298,20 @@ if "secret_number" not in st.session_state:
 
 
 # ---------------------------------------------------------
-# SIDEBAR: LUXURY CONTROL PANEL
+# SIDEBAR: SETTINGS & CREATOR PROFILE
 # ---------------------------------------------------------
 with st.sidebar:
-    st.markdown("### 🎛️ Control Panel")
+    st.markdown("## ⚙️ Game Settings")
     
-    # Live Agents Status Pill
+    # Live Status
     st.markdown("""
-    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom: 20px;">
-        <div style="display:flex; align-items:center; gap:8px; background:rgba(15,23,42,0.7); border:1px solid rgba(16,185,129,0.3); padding:7px 12px; border-radius:10px; font-size:0.83rem; color:#34d399;">
-            <span style="width:8px; height:8px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981;"></span>
-            Arbiter Engine: Active
-        </div>
-        <div style="display:flex; align-items:center; gap:8px; background:rgba(15,23,42,0.7); border:1px solid rgba(56,189,248,0.3); padding:7px 12px; border-radius:10px; font-size:0.83rem; color:#38bdf8;">
-            <span style="width:8px; height:8px; border-radius:50%; background:#38bdf8; box-shadow:0 0 8px #38bdf8;"></span>
-            Nova AI Concierge: 24/7 Live
-        </div>
+    <div style="background:#1e293b; padding:10px 14px; border-radius:10px; border:1px solid #334155; margin-bottom:16px;">
+        <div style="color:#34d399; font-weight:700; font-size:0.85rem; margin-bottom:4px;">● AI Arbiter: Online</div>
+        <div style="color:#38bdf8; font-weight:700; font-size:0.85rem;">● Nova AI Concierge: 24/7 Live</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Friendly Game Mode Selection
+    # Game Mode Selection
     mode_options = [
         "🎯 Classic Mode",
         "🤖 Play Against AI",
@@ -334,10 +324,10 @@ with st.sidebar:
         st.session_state.game_mode = current_mode
 
     selected_mode = st.selectbox(
-        "Select Experience:",
+        "Choose Mode:",
         mode_options,
         index=mode_options.index(current_mode),
-        help="Classic: Relaxed play | Play Against AI: Turn-by-turn race | 7-Guess: Limited tries"
+        help="Classic: Relaxed play | Play Against AI: Beat the computer | 7-Guess: Limited tries"
     )
 
     if selected_mode != st.session_state.game_mode:
@@ -345,10 +335,10 @@ with st.sidebar:
         init_game_state(reset_lifetime=False)
         st.rerun()
 
-    # Friendly Range Configuration
-    st.markdown("#### 📏 Target Range")
+    # Range Selection
+    st.markdown("### 📏 Number Range")
     range_tier = st.radio(
-        "Difficulty Level:",
+        "Select Range:",
         ["Easy (1 to 20)", "Medium (1 to 100)", "Hard (1 to 500)", "Custom Range"],
         index=1
     )
@@ -379,54 +369,55 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # Developer Portfolio Showcase Card
+    # Developer Profile Card
     st.markdown(f"""
-    <div class="creator-card">
-        <div style="font-size:0.75rem; text-transform:uppercase; color:#38bdf8; font-weight:700; letter-spacing:0.05em;">Engineered By</div>
-        <div style="font-size:1.05rem; font-weight:800; color:#f8fafc; margin: 4px 0;">Sainbux (Hadi) Seelro</div>
-        <div style="font-size:0.8rem; color:#94a3b8; margin-bottom:10px;">Agentic AI & Systems Developer</div>
-        <a href="https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform" target="_blank" style="text-decoration:none; display:inline-block; background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.4); color:#38bdf8; padding:5px 12px; border-radius:8px; font-size:0.78rem; font-weight:600;">
-            ⭐ View GitHub Repository
+    <div class="dev-badge">
+        <div style="font-size:0.75rem; text-transform:uppercase; color:#38bdf8; font-weight:700;">Developer Portfolio</div>
+        <div style="font-size:1.1rem; font-weight:800; color:#ffffff; margin: 4px 0;">Sainbux (Hadi) Seelro</div>
+        <div style="font-size:0.85rem; color:#cbd5e1; margin-bottom:10px;">Agentic AI & Systems Developer</div>
+        <a href="https://github.com/SainBux-HadiSeelro/nexus-mind-agentic-platform" target="_blank" style="text-decoration:none; display:inline-block; background:#0284c7; color:#ffffff; padding:6px 14px; border-radius:6px; font-size:0.8rem; font-weight:700;">
+            ⭐ GitHub Repo
         </a>
     </div>
     """, unsafe_allow_html=True)
 
     # Optional OpenAI Key
-    with st.expander("🔑 Advanced: Add OpenAI Key (Optional)", expanded=False):
+    with st.expander("🔑 Advanced: OpenAI Key (Optional)", expanded=False):
         user_api_key = st.text_input(
             "API Key:",
             type="password",
             placeholder="sk-...",
-            help="Nova works 100% free with its autonomous built-in engine. Add an OpenAI key if you want to use GPT-4o-mini."
+            help="Nova works 100% free with the built-in offline engine. Adding an OpenAI key is optional."
         )
 
     st.markdown("<br/>", unsafe_allow_html=True)
-    if st.button("🔄 Reset Score & Session", use_container_width=True):
+    if st.button("🔄 Reset Score", use_container_width=True):
         init_game_state(reset_lifetime=True)
         st.rerun()
 
 
 # ---------------------------------------------------------
-# HERO HEADER BANNER
+# HERO HEADER BOX (HIGH CONTRAST & CLEAR)
 # ---------------------------------------------------------
 st.markdown("""
-<div class="hero-container">
+<div class="hero-box">
     <div class="hero-badge">⚡ Autonomous Agentic AI System</div>
-    <div class="hero-title">Nexus Mind</div>
-    <div class="hero-subtitle">
-        An intelligent, multi-agent number deduction experience. Can you find the secret number before the autonomous AI opponent?
+    <div class="hero-title">🎯 Nexus Mind: Smart AI Number Game</div>
+    <div class="hero-desc">
+        Can you guess the secret number? An intelligent AI Arbiter gives you live Hot & Cold clues to help you win!
     </div>
-    <div class="quick-chips-row">
-        <div class="chip">🎯 <b>1. Pick a Guess</b></div>
-        <div class="chip">📡 <b>2. Read AI Proximity Radar</b></div>
-        <div class="chip">💬 <b>3. Ask Nova for 24/7 Hints</b></div>
+    <div class="steps-box">
+        <b>Quick 3-Step Guide:</b><br/>
+        <span>1️⃣ Enter a number between the range and click <b>Check My Guess</b>.</span><br/>
+        <span>2️⃣ Read the AI clue: It will tell you if you are <b>Too High</b>, <b>Too Low</b>, or <b>Getting Warm/Hot!</b></span><br/>
+        <span>3️⃣ If you ever get stuck, open the <b>💬 Nova AI Helper</b> tab for a free clue!</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------
-# TOP TELEMETRY METRIC CARDS
+# TOP SCORE METRIC CARDS
 # ---------------------------------------------------------
 stats_summary = analytics_agent.summarize_session({
     "games_played": st.session_state.games_played,
@@ -439,30 +430,30 @@ stats_summary = analytics_agent.summarize_session({
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.markdown(f"""
-    <div class="metric-card">
-        <div class="metric-label">🎮 Games Played</div>
-        <div class="metric-value">{stats_summary['games_played']}</div>
+    <div class="stat-card">
+        <div class="stat-title">🎮 Games Played</div>
+        <div class="stat-num">{stats_summary['games_played']}</div>
     </div>
     """, unsafe_allow_html=True)
 with c2:
     st.markdown(f"""
-    <div class="metric-card">
-        <div class="metric-label">🏆 Victories</div>
-        <div class="metric-value" style="color:#10b981;">{stats_summary['games_won']}</div>
+    <div class="stat-card">
+        <div class="stat-title">🏆 Victories</div>
+        <div class="stat-num" style="color:#34d399;">{stats_summary['games_won']}</div>
     </div>
     """, unsafe_allow_html=True)
 with c3:
     st.markdown(f"""
-    <div class="metric-card">
-        <div class="metric-label">🎯 Win Rate</div>
-        <div class="metric-value" style="color:#38bdf8;">{stats_summary['win_rate']}%</div>
+    <div class="stat-card">
+        <div class="stat-title">🎯 Win Rate</div>
+        <div class="stat-num" style="color:#38bdf8;">{stats_summary['win_rate']}%</div>
     </div>
     """, unsafe_allow_html=True)
 with c4:
     st.markdown(f"""
-    <div class="metric-card">
-        <div class="metric-label">🔥 Win Streak</div>
-        <div class="metric-value" style="color:#f59e0b;">{stats_summary['current_streak']}</div>
+    <div class="stat-card">
+        <div class="stat-title">🔥 Win Streak</div>
+        <div class="stat-num" style="color:#fbbf24;">{stats_summary['current_streak']}</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -473,37 +464,38 @@ st.markdown("<br/>", unsafe_allow_html=True)
 # MAIN INTERFACE TABS
 # ---------------------------------------------------------
 tab_game, tab_chatbot, tab_specs, tab_logs = st.tabs([
-    "🎮 Interactive Arena",
-    "💬 Nova AI Concierge (24/7)",
-    "🧠 Multi-Agent Architecture",
-    "📜 Live Agent Logs"
+    "🎮 Play Game",
+    "💬 Nova AI Helper (24/7 Chat)",
+    "🧠 System Architecture (For Techies)",
+    "📜 Live AI Activity Log"
 ])
 
 
 # =========================================================
-# TAB 1: INTERACTIVE ARENA
+# TAB 1: PLAY GAME
 # =========================================================
 with tab_game:
     col_play, col_clues = st.columns([1.3, 1.0])
 
     with col_play:
-        st.markdown(f"### Active Mode: **{st.session_state.game_mode}**")
+        st.markdown(f"### Current Mode: **{st.session_state.game_mode}**")
         
-        # Sleek Target Search Range Visualizer
+        # Target Boundary Banner
         total_span = max(1, st.session_state.max_val - st.session_state.min_val)
         active_span = max(1, st.session_state.active_high - st.session_state.active_low)
         eliminated_pct = int(((total_span - active_span) / total_span) * 100)
         remaining_count = active_span + 1
 
         st.markdown(f"""
-        <div class="range-visualizer">
-            <span class="range-endpoint">[{st.session_state.active_low}]</span>
-            <span class="range-middle">━━━━ 🎯 TARGET HIDDEN ━━━━</span>
-            <span class="range-endpoint">[{st.session_state.active_high}]</span>
+        <div class="boundary-banner">
+            <span class="boundary-text">Secret number is between </span>
+            <span class="boundary-highlight">[{st.session_state.active_low}]</span>
+            <span class="boundary-text"> and </span>
+            <span class="boundary-highlight">[{st.session_state.active_high}]</span>
         </div>
         """, unsafe_allow_html=True)
 
-        st.progress(min(1.0, max(0.0, eliminated_pct / 100.0)), text=f"Search Space Eliminated: {eliminated_pct}% ({remaining_count} numbers remaining)")
+        st.progress(min(1.0, max(0.0, eliminated_pct / 100.0)), text=f"Search Progress: {eliminated_pct}% eliminated ({remaining_count} possible numbers left)")
 
         # Challenge Mode Countdown
         if st.session_state.game_mode == "⏳ 7-Guess Challenge":
@@ -518,7 +510,7 @@ with tab_game:
 
         # GUESS INPUT BOX
         if not st.session_state.game_over:
-            with st.form("modern_guess_form", clear_on_submit=False):
+            with st.form("clean_guess_form", clear_on_submit=False):
                 col_i1, col_i2 = st.columns([2, 1])
                 with col_i1:
                     default_guess = int((st.session_state.active_low + st.session_state.active_high) // 2)
@@ -532,7 +524,7 @@ with tab_game:
                 with col_i2:
                     st.write("")
                     st.write("")
-                    submit_guess = st.form_submit_button("⚡ Submit Guess", use_container_width=True, type="primary")
+                    submit_guess = st.form_submit_button("🎯 Check My Guess", use_container_width=True, type="primary")
 
             if submit_guess and not st.session_state.game_over:
                 st.session_state.attempts += 1
@@ -613,28 +605,28 @@ with tab_game:
                 badge = analytics_agent.evaluate_performance_badge(efficiency, st.session_state.attempts, st.session_state.optimal_steps)
                 
                 st.markdown(f"""
-                <div class="glass-panel" style="border-left: 6px solid #10b981; background: radial-gradient(circle at 0% 0%, rgba(16,185,129,0.15) 0%, rgba(15,23,42,0.9) 100%);">
-                    <h2 style="color:#10b981; margin:0 0 8px 0; font-size:1.8rem;">🎉 VICTORY ACHIEVED!</h2>
-                    <p style="font-size:1.15rem; margin-bottom:12px;">You cracked the secret number <b>{st.session_state.secret_number}</b> in only <b>{st.session_state.attempts}</b> tries!</p>
-                    <div style="font-size: 1.35rem; margin-bottom: 6px;">{badge.get('stars', '⭐⭐⭐')} <b>{badge['title']}</b></div>
-                    <p style="color:#94a3b8; font-style:italic;">"{badge['verdict']}"</p>
+                <div style="background:#064e3b; border:2px solid #10b981; border-radius:14px; padding:20px; margin-top:16px;">
+                    <h2 style="color:#ffffff; margin:0 0 6px 0;">🎉 CONGRATULATIONS! YOU WON!</h2>
+                    <p style="font-size:1.15rem; color:#d1fae5; margin-bottom:10px;">You found the secret number <b>{st.session_state.secret_number}</b> in just <b>{st.session_state.attempts}</b> tries!</p>
+                    <div style="font-size: 1.3rem; margin-bottom: 6px; color:#fde047;">{badge.get('stars', '⭐⭐⭐')} <b>{badge['title']}</b></div>
+                    <p style="color:#a7f3d0; font-style:italic;">"{badge['verdict']}"</p>
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
-                <div class="glass-panel" style="border-left: 6px solid #ef4444; background: radial-gradient(circle at 0% 0%, rgba(239,68,68,0.15) 0%, rgba(15,23,42,0.9) 100%);">
-                    <h3 style="color:#ef4444; margin-top:0;">Round Complete!</h3>
-                    <p>The secret number was <b>{st.session_state.secret_number}</b>.</p>
-                    <p>Ready for another round? Hit the button below!</p>
+                <div style="background:#450a0a; border:2px solid #ef4444; border-radius:14px; padding:20px; margin-top:16px;">
+                    <h3 style="color:#ffffff; margin-top:0;">Round Complete!</h3>
+                    <p style="color:#fecaca;">The secret number was <b>{st.session_state.secret_number}</b>.</p>
                 </div>
                 """, unsafe_allow_html=True)
 
+            st.write("")
             if st.button("🚀 Play Another Round", type="primary", use_container_width=True):
                 init_game_state(reset_lifetime=False)
                 st.rerun()
 
         # EASY CLUE EXPANDER
-        with st.expander("💡 Request Mathematical Clue from Nexus Arbiter", expanded=False):
+        with st.expander("💡 Want an easy clue from the AI Arbiter?", expanded=False):
             if not st.session_state.game_over:
                 hint_text = arbiter_agent.generate_smart_hint(
                     st.session_state.secret_number,
@@ -642,54 +634,54 @@ with tab_game:
                     st.session_state.active_high,
                     max(1, st.session_state.attempts)
                 )
-                st.info(f"🤖 **Arbiter Clue:** {hint_text}")
+                st.info(f"🤖 **AI Clue:** {hint_text}")
                 rec_guess = arbiter_agent.get_binary_search_recommendation(st.session_state.active_low, st.session_state.active_high)
-                st.caption(f"Binary Search Midpoint Recommendation: **{rec_guess}**")
+                st.caption(f"Smartest guess right now: **{rec_guess}** (halves the remaining choices!)")
             else:
-                st.write("Start a new round to unlock live tactical clues.")
+                st.write("Start a new round to unlock clues.")
 
     # CLUES & RECENT GUESSES COLUMN
     with col_clues:
-        st.markdown("### 📡 Proximity Radar")
+        st.markdown("### 📡 Live AI Sensor")
         
         # Last Feedback Callout
         if st.session_state.last_feedback:
             heat_class = {
-                "🔥 BOILING HOT": "radar-boiling",
-                "🌡️ WARM": "radar-warm",
-                "🌤️ LUKEWARM": "radar-lukewarm",
-                "❄️ SUB-ZERO COLD": "radar-cold"
-            }.get(st.session_state.last_heat, "radar-lukewarm")
+                "🔥 BOILING HOT": "clue-boiling",
+                "🌡️ WARM": "clue-warm",
+                "🌤️ LUKEWARM": "clue-lukewarm",
+                "❄️ SUB-ZERO COLD": "clue-cold"
+            }.get(st.session_state.last_heat, "clue-lukewarm")
 
             st.markdown(f"""
-            <div class="radar-box {heat_class}">
-                <div style="font-size:0.8rem; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em;">Live Reading</div>
-                <div style="font-size:1.3rem; font-weight:800; margin: 8px 0; color:#f8fafc;">{st.session_state.last_feedback}</div>
-                <div style="font-size:1rem; font-weight:700; margin-top:8px;">{st.session_state.last_heat}</div>
+            <div class="clue-card {heat_class}">
+                <div style="font-size:0.85rem; color:#cbd5e1; text-transform:uppercase; font-weight:700;">Latest Reading</div>
+                <div style="font-size:1.35rem; font-weight:800; margin: 8px 0; color:#ffffff;">{st.session_state.last_feedback}</div>
+                <div style="font-size:1.1rem; font-weight:800; color:#ffffff;">{st.session_state.last_heat}</div>
             </div>
             """, unsafe_allow_html=True)
         else:
-            st.info("Submit your first guess to activate the live thermal sensor.")
+            st.info("Make your first guess to see live AI radar clues here!")
 
         # Past Guesses
         if st.session_state.history:
-            st.markdown("#### 📝 Guess History")
+            st.markdown("#### 📝 Your Recent Guesses")
             for h in reversed(st.session_state.history[-5:]):
-                st.markdown(f"• Try #{h['attempt']}: **{h['guess']}** ➔ `{h['status']}` ({h['heat']})")
+                st.markdown(f"• Try #{h['attempt']}: Guessed **{h['guess']}** ➔ `{h['status']}` ({h['heat']})")
 
         # AI Moves (if playing against AI)
         if st.session_state.game_mode == "🤖 Play Against AI" and st.session_state.ai_duel_history:
-            st.markdown("#### 🤖 AI Rival History")
+            st.markdown("#### 🤖 AI Opponent's Moves")
             for m in reversed(st.session_state.ai_duel_history[-4:]):
-                st.markdown(f"• AI Turn #{m['turn']}: **{m['ai_guess']}** ➔ `{m['status']}`")
+                st.markdown(f"• AI Turn #{m['turn']}: Guessed **{m['ai_guess']}** ➔ `{m['status']}`")
 
 
 # =========================================================
 # TAB 2: NOVA 24/7 AI HELPER CHATBOT
 # =========================================================
 with tab_chatbot:
-    st.markdown("### 💬 Nova — 24/7 Live AI Concierge")
-    st.caption("Nova monitors the live telemetry of your game session. Ask for strategic hints, application architecture, or developer portfolio details.")
+    st.markdown("### 💬 Nova — 24/7 Live AI Helper")
+    st.caption("Nova monitors your live game session. Ask for an easy hint, how to play, or about the developer!")
 
     # Live state for chatbot
     live_telemetry_snapshot = {
@@ -707,17 +699,17 @@ with tab_chatbot:
     }
 
     # Friendly Quick Action Chips
-    st.markdown("**Quick Inquiries:**")
+    st.markdown("**Click any question to ask quickly:**")
     qc1, qc2, qc3, qc4 = st.columns(4)
     quick_query = None
-    if qc1.button("💡 Tactical Hint", use_container_width=True):
+    if qc1.button("💡 Give Me an Easy Hint", use_container_width=True):
         quick_query = "Can you give me an easy hint for my current number?"
     if qc2.button("❓ How Do I Play?", use_container_width=True):
         quick_query = "How do I play this game and win quickly?"
     if qc3.button("👨‍💻 Who Created This?", use_container_width=True):
         quick_query = "Who is the developer that built this game and what is their portfolio?"
-    if qc4.button("🤖 Multi-Agent Architecture", use_container_width=True):
-        quick_query = "Explain how the multi-agent AI system operates behind the scenes."
+    if qc4.button("🤖 How Does AI Work?", use_container_width=True):
+        quick_query = "Explain how the multi-agent AI system operates in simple words."
 
     # Display Chat History
     for message in st.session_state.chat_history:
@@ -725,7 +717,7 @@ with tab_chatbot:
             st.markdown(message["content"])
 
     # User Input
-    chat_input = st.chat_input("Ask Nova anything about the game, hints, or developer portfolio...")
+    chat_input = st.chat_input("Ask Nova anything (e.g., 'give me a clue' or 'who made this?')...")
     user_prompt = quick_query or chat_input
 
     if user_prompt:
@@ -734,7 +726,7 @@ with tab_chatbot:
             st.markdown(user_prompt)
 
         with st.chat_message("assistant"):
-            with st.spinner("Nova is reasoning over live telemetry..."):
+            with st.spinner("Nova is thinking..."):
                 response_text = support_agent.respond(
                     user_message=user_prompt,
                     live_state=live_telemetry_snapshot,
@@ -744,7 +736,7 @@ with tab_chatbot:
 
         st.session_state.chat_history.append({"role": "assistant", "content": response_text})
         st.session_state.agent_logs.append(
-            f"[{time.strftime('%H:%M:%S')}] Nova Concierge responded to: '{user_prompt[:35]}...'."
+            f"[{time.strftime('%H:%M:%S')}] Nova Helper replied to: '{user_prompt[:35]}...'."
         )
 
 
@@ -754,7 +746,7 @@ with tab_chatbot:
 with tab_specs:
     st.markdown("### 🧠 Multi-Agent AI System Architecture (For Technical Review)")
     st.markdown("""
-    Underneath the intuitive UI is an **Agentic Multi-Agent System (MAS)** where dedicated autonomous agents
+    Underneath the user-friendly UI is an **Autonomous Multi-Agent System (MAS)** where dedicated agents
     communicate via a reactive session telemetry bus.
     """)
 
@@ -818,8 +810,8 @@ with tab_logs:
 # ---------------------------------------------------------
 st.markdown("---")
 st.markdown("""
-<div style="text-align: center; color: #64748b; font-size: 0.88rem; padding: 12px 0;">
-    ⚡ <b>Nexus Mind</b> | Engineered by <b>Sainbux (Hadi) Seelro</b> (Agentic AI Developer) | 
-    Featuring Autonomous Multi-Agent Swarms & 24/7 Live AI Concierge.
+<div style="text-align: center; color: #94a3b8; font-size: 0.9rem; padding: 12px 0;">
+    🎯 <b>Nexus Mind</b> | Created by <b>Sainbux (Hadi) Seelro</b> (Agentic AI Developer) | 
+    Powered by Autonomous Multi-Agent Swarms & 24/7 Live AI Helper.
 </div>
 """, unsafe_allow_html=True)
