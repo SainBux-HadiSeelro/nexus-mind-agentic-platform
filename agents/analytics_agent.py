@@ -40,36 +40,41 @@ class AnalyticsAgent:
 
     @staticmethod
     def evaluate_performance_badge(efficiency: float, attempts: int, optimal: int) -> Dict[str, str]:
-        """Generate tactical badges and agent assessment based on performance."""
+        """Generate friendly badges and agent assessment based on performance."""
         if attempts == 1:
             return {
-                "title": "🎯 Oracle Clairvoyant",
+                "stars": "⭐⭐⭐⭐⭐",
+                "title": "🎯 Miraculous Guess!",
                 "color": "#a855f7",
-                "verdict": "Flawless First-Strike! Probabilistic miracle."
+                "verdict": "Unbelievable! You guessed it on your very first try!"
             }
-        elif efficiency >= 95.0:
+        elif efficiency >= 90.0:
             return {
-                "title": "⚡ Quantum Master",
+                "stars": "⭐⭐⭐⭐",
+                "title": "⚡ Super Brain!",
                 "color": "#06b6d4",
-                "verdict": "Optimal logarithmic convergence. High algorithmic discipline."
+                "verdict": "Outstanding! You used the smartest strategy to find the number."
             }
-        elif efficiency >= 70.0:
+        elif efficiency >= 65.0:
             return {
-                "title": "🧠 Strategic Operator",
+                "stars": "⭐⭐⭐",
+                "title": "🧠 Smart Deductive Play",
                 "color": "#10b981",
-                "verdict": "Solid binary search narrowing with minimal wasted entropy."
+                "verdict": "Great job! You narrowed down the possibilities quickly."
             }
-        elif efficiency >= 45.0:
+        elif efficiency >= 40.0:
             return {
-                "title": "🎲 Intuitive Tactician",
+                "stars": "⭐⭐",
+                "title": "🎲 Intuitive Player",
                 "color": "#f59e0b",
-                "verdict": "Empirical guessing pattern. Consider narrowing search brackets."
+                "verdict": "Good effort! Try cutting the range in half each time to win faster."
             }
         else:
             return {
-                "title": "🔄 Persistent Explorer",
-                "color": "#ef4444",
-                "verdict": "High trial count. Try halving the remaining interval every turn."
+                "stars": "⭐",
+                "title": "🏆 Persistent Winner",
+                "color": "#38bdf8",
+                "verdict": "You did it! Keep practicing to guess in fewer tries."
             }
 
     @staticmethod

@@ -65,21 +65,19 @@ flowchart TD
 
 ## 🎮 Game Operation Modes
 
-### 1. 🎯 Adaptive Arena (Single Player with AI Co-Pilot)
-- Choose from **Casual (1-20)**, **Standard (1-100)**, **Master (1-500)**, or **Custom Search Ranges**.
-- Real-time **Thermal Proximity Radar**: `🔥 BOILING HOT`, `🌡️ WARM`, `🌤️ LUKEWARM`, `❄️ SUB-ZERO COLD`.
-- Real-time boundary contraction progress bar.
-- On-demand mathematical deductions from the Arbiter Agent.
+### 1. 🎯 Classic Mode (Relaxed Fun with AI Hints)
+- Pick a range (1 to 20, 1 to 100, or 1 to 500) and guess at your own pace.
+- Real-time **Thermal Clue Radar**: `🔥 Super Close!`, `🌡️ Warm`, `🌤️ Getting Closer`, `❄️ Cold`.
+- Helpful AI hints available anytime if you get stuck.
 
-### 2. 🤖 Human vs Autonomous AI Agent Duel
-- Turn-based battle between you and an Autonomous AI Rival.
-- Watch the AI agent calculate binary search midpoints and narrow the boundary live on screen!
-- First entity to identify the target wins the round.
+### 2. 🤖 Play Against AI (Race Against the Computer)
+- A fun turn-based race! Can you guess the secret number before the AI does?
+- Watch the AI agent calculate smart midpoints and narrow down the possibilities.
+- First to find the secret number wins!
 
-### 3. ⚡ Quantum Countdown (Limited Moves)
-- Moves strictly bounded by theoretical binary search limits:
-  $$\text{Allowed Moves} = \lceil\log_2 N\rceil + 2$$
-- Test your logarithmic convergence under high stakes.
+### 3. ⏳ 7-Guess Challenge (Beat the Clock)
+- You have just 7 tries to find the secret number!
+- Test your deduction skills under high stakes.
 
 ---
 
