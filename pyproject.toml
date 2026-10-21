@@ -1,0 +1,19 @@
+[project]
+name = "nexus-mind-agentic-platform"
+version = "1.0.0"
+description = "Nexus Mind: Autonomous Multi-Agent Gaming & Intelligence Platform with 24/7 Live AI Concierge"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.35.0",
+]
+
+[project.optional-dependencies]
+ai = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
